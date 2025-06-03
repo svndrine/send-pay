@@ -47,7 +47,24 @@ class HomeScreen extends StatelessWidget {
             children: [
 
               const SizedBox(height: 20),
-              const Text("Accueil", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.menu),
+                    onPressed: () {
+                      // Tu pourras ouvrir un Drawer ou autre plus tard
+                    },
+                  ),
+                  const Text(
+                    "Accueil",
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(width: 48), // Pour équilibrer visuellement
+                ],
+              ),
+
               const SizedBox(height: 30),
 
               // 💰 Solde
