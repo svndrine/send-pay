@@ -12,7 +12,6 @@ class SendRequestScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text("Envoyer et demander", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-
             const SizedBox(height: 20),
 
             // Barre de recherche
@@ -25,7 +24,6 @@ class SendRequestScreen extends StatelessWidget {
                 ),
               ),
             ),
-
             const SizedBox(height: 24),
 
             const Text("Suggestions", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
@@ -47,20 +45,37 @@ class SendRequestScreen extends StatelessWidget {
               ),
             ),
 
+            const SizedBox(height: 16),
+
             // Boutons en bas
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue, //bg color
+                      foregroundColor: Colors.white, //txt color
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
                     child: const Text("Envoyer"),
                   ),
                 ),
-                const SizedBox(width: 10),
+                const SizedBox(width: 12),
                 Expanded(
                   child: OutlinedButton(
                     onPressed: () {},
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: Colors.blue, // 🔵 texte
+                      side: const BorderSide(color: Colors.blue), // 🔵 bordure
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
                     child: const Text("Demander"),
                   ),
                 ),
@@ -73,22 +88,38 @@ class SendRequestScreen extends StatelessWidget {
   }
 }
 
-// Widget réutilisable pour afficher un contact
 class _UserItem extends StatelessWidget {
   final String name;
   final String username;
 
   const _UserItem({required this.name, required this.username});
 
+  String getInitials() {
+    return name.isNotEmpty
+        ? name.trim().split(' ').map((e) => e[0]).take(2).join()
+        : '';
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: const CircleAvatar(child: Icon(Icons.person)),
-      title: Text(name),
-      subtitle: Text(username),
-      trailing: const Icon(Icons.info_outline),
+      leading: CircleAvatar(
+        radius: 24,
+        backgroundColor: Colors.blue.shade100,
+        child: Text(
+          getInitials(),
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.blue,
+            fontSize: 16,
+          ),
+        ),
+      ),
+      title: Text(name, style: const TextStyle(fontWeight: FontWeight.w600)),
+      subtitle: Text(username, style: const TextStyle(color: Colors.grey)),
+      trailing: Icon(Icons.info_outline, color: Colors.grey.shade700),
       onTap: () {
-        // Action au clic (à définir)
+        // Action à définir (naviguer, envoyer, etc.)
       },
     );
   }
