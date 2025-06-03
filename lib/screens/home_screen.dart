@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'menu_drawer.dart';
 
 // Liste des transactions fictives
 final List<Map<String, dynamic>> transactions = [
@@ -39,6 +40,20 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      drawer: MenuDrawer(), // ✅ Ajout du Drawer ici
+      appBar: AppBar(
+        title: const Text("Accueil"),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () => Scaffold.of(context).openDrawer(), // 👉 Ouvre le Drawer
+          ),
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
@@ -47,24 +62,6 @@ class HomeScreen extends StatelessWidget {
             children: [
 
               const SizedBox(height: 20),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.menu),
-                    onPressed: () {
-                    },
-                  ),
-                  const Text(
-                    "Accueil",
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(width: 48), // Pour équilibrer visuellement
-                ],
-              ),
-
-              const SizedBox(height: 30),
 
               // 💰 Solde
               Container(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 import 'screens/send_request_screen.dart';
 import 'screens/wallet_screen.dart';
-import 'screens/menu_screen.dart';
+import 'screens/menu_drawer.dart';
 import 'widgets/bottom_nav_bar.dart';
 
 void main() => runApp(MaterialApp(
@@ -34,7 +34,7 @@ class _SendAndPayAppState extends State<SendAndPayApp> {
     HomeScreen(),
     SendRequestScreen(),
     WalletScreen(),
-    //MenuScreen(),
+    Drawer(),
   ];
 
   void _onTabTapped(int index) {
