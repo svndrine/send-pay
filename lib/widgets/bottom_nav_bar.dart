@@ -9,10 +9,13 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      backgroundColor: Colors.white,
       currentIndex: currentIndex,
       onTap: onTap,
       selectedItemColor: Colors.blue,
       unselectedItemColor: Colors.grey,
+      type: BottomNavigationBarType.fixed, //  TRÈS IMPORTANT
+      elevation: 8, // Optionnel : pour une petite ombre
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Accueil'),
         BottomNavigationBarItem(icon: Icon(Icons.swap_vert), label: 'Envoyer/Demander'),
