@@ -54,7 +54,6 @@ class HomeScreen extends StatelessWidget {
                   IconButton(
                     icon: const Icon(Icons.menu),
                     onPressed: () {
-                      // Tu pourras ouvrir un Drawer ou autre plus tard
                     },
                   ),
                   const Text(
