@@ -33,7 +33,7 @@ class _SendAndPayAppState extends State<SendAndPayApp> {
   final List<Widget> _screens = const [
     HomeScreen(),
     SendRequestScreen(),
-    //WalletScreen(),
+    WalletScreen(),
     //MenuScreen(),
   ];
 
